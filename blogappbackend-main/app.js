@@ -7,7 +7,7 @@ const notFound = require('./middleware/not-found')
 const errorHandler = require('./middleware/error-handler')
 const cors = require('cors')
 require('dotenv').config()
-app.use(express.static('/front'))
+app.use(express.static('./front'))
 app.use(express.json())
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
@@ -16,7 +16,6 @@ app.use(function(req, res, next) {
   next();
 });
 app.use(cors())
-spp.get('/',(req,res)=>{console.log("HEllo"),res.json({"h1":"hello"})})
 app.use('/api/v1/blog',blogRoute)
 app.use(notFound)
 app.use(errorHandler)
