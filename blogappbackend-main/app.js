@@ -16,6 +16,7 @@ app.use(function(req, res, next) {
   next();
 });
 app.use(cors())
+spp.get('/',(req,res)=>{console.log("HEllo"),res.json({"h1":"hello"})})
 app.use('/api/v1/blog',blogRoute)
 app.use(notFound)
 app.use(errorHandler)
